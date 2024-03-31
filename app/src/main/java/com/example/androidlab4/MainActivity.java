@@ -7,7 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Camera;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.KeyEvent;
 import android.view.View;
 
 import com.example.androidlab4.databinding.ActivityMainBinding;
@@ -42,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("userInput", userInput);
                 Intent resintent = new Intent(MainActivity.this, SecondActivity.class);
                 activityResultLauncher.launch(intent);
+            }
+        });
+        binding.button3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps")));
             }
         });
         View view = binding.getRoot();
